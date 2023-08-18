@@ -1,4 +1,4 @@
-# ---------------------Projeto Java Web----------------------------------
+# ---------------Projeto Java Web------------------
 
 ##### O objetivo do projeto é demonstrar conhecimentos em Automação de Testes na linguagem Java. 
 
