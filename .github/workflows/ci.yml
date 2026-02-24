@@ -22,8 +22,17 @@ jobs:
           distribution: temurin
           java-version: 17
 
+      - name: Clean old Allure artifacts
+        run: |
+          rm -rf allure-results allure-report
+
       - name: Run Tests
         run: mvn clean test
+
+      - name: Validate Allure results
+        run: |
+          test -d allure-results
+          test "$(find allure-results -type f | wc -l)" -gt 0
 
       - name: Install Allure
         run: |
@@ -39,3 +48,4 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./allure-report
           publish_branch: gh-pages
+          force_orphan: true
