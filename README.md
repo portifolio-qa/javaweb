@@ -1,29 +1,131 @@
-# ---------------Projeto Java Web------------------
 
-##### O objetivo do projeto é demonstrar conhecimentos em Automação de Testes na linguagem Java. 
+# Projeto de Automação de Testes – Java Web
 
-### Framework e Bibliotecas
+## Sobre o Projeto
 
-* Selenium
-* Junit5
-* Geração de relatório de
-* Execução dos testes
+Este projeto tem como objetivo demonstrar conhecimentos sólidos em Automação de Testes utilizando Java, aplicando boas práticas de engenharia de software, arquitetura de testes e padrões de design.
 
-### Conceitos:
+A solução foi estruturada para garantir:
 
-* Arquitetura de Automação de Testes
-* Orientação Objetos
-* Design Patternse
-* Clean Code
+- Escalabilidade
+- Manutenibilidade
+- Reutilização de código
+- Clareza na organização dos testes
+- Separação de responsabilidades
 
-### Informações do projeto:
-* Helpers: Clean Code, serve para não criar testes fixos, instanciam os dados que serão utilizados nos testes;
-* Pages: Padrão de design para manutenção dos testes;
-* Runners: Responsável por instânciar as classes de testes e os métodos;
-* Steps: Métodos dos passos do Bdd
-* Features: Linguagem Gerkin, padronização do BDD 
-* Target (report-html): Relatório de Testes
+---
+
+## Stack Tecnológica
+
+- Java
+- Selenium WebDriver
+- JUnit 5
+- Maven
+- Allure Report
+- BDD com Gherkin
+
+---
+
+## Conceitos Aplicados
+
+- Arquitetura de Automação de Testes
+- Programação Orientada a Objetos (POO)
+- Page Object Model (POM)
+- Design Patterns
+- Clean Code
+- BDD (Behavior Driven Development)
+- Separação de responsabilidades (SRP)
+
+---
+
+## Estrutura do Projeto
+
+src
+
+├── main
+
+└── test
+
+├── helpers
+
+├── pages
+
+├── runners
+
+├── steps
+
+└── resources
+
+└── features
+
+### Descrição das Camadas
+
+**Helpers**
+Responsáveis por centralizar utilidades e abstrações, evitando hardcode nos testes e promovendo reutilização e flexibilidade na criação de dados.
+
+**Pages**
+Implementação do padrão Page Object Model (POM), garantindo encapsulamento de elementos e ações da interface, facilitando manutenção.
+
+**Runners**
+Responsáveis por inicializar e executar os testes, integrando o fluxo BDD com o framework de execução.
+
+**Steps**
+Implementação dos passos definidos nas features, promovendo clareza entre regra de negócio e automação.
+
+**Features**
+Escritas em Gherkin, garantindo padronização e legibilidade do comportamento esperado da aplicação.
+
+---
+
+## Relatórios de Execução
+
+A execução dos testes gera relatórios detalhados contendo:
+
+- Status dos testes (Pass / Fail)
+- Evidências
+- Logs
+- Tempo de execução
+- Organização por suítes
+
+O relatório pode ser acessado via:
+
+- Allure Report
+- Pasta `target/report-html`
+
+---
+
+## Como Executar o Projeto
+
+### Executar testes
+
+```bash
+mvn clean test
+```
+
+### Gerar relatório Allure
+
+```
+allure serve target/allure-results
+```
+
+## Objetivo Técnico
+
+Este projeto foi desenvolvido com foco em:
+
+* Demonstrar maturidade em automação
+* Aplicar padrões reconhecidos de mercado
+* Estruturar testes com visão de engenharia
+* Garantir legibilidade e manutenção a longo prazo
 
 ## Desafio
 
-![desafio](https://github.com/portifolio-qa/javaweb/assets/19215203/a1a0cf82-7fa1-43e2-888f-020cd555b5b6)
+O principal desafio foi estruturar uma arquitetura de testes limpa e escalável, evitando acoplamento excessivo e garantindo organização clara entre regras de negócio e implementação técnica.
+
+![1771958845318](image/README/1771958845318.png)
+
+
+## Autora
+
+Rose Dias
+
+QA Engineer | Automação de Testes | Java | Backend Quality
