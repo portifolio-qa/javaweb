@@ -1,7 +1,7 @@
 package runner;
 
-import cucumber.api.CucumberOptions;
-import cucumber.api.junit.Cucumber;
+import io.cucumber.junit.Cucumber;
+import io.cucumber.junit.CucumberOptions;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.runner.RunWith;
@@ -12,13 +12,12 @@ import org.openqa.selenium.chrome.ChromeOptions;
 
 @CucumberOptions(
 
-		features = "src/test/resources/features/contas.feature",
-		tags = {"not @ignore"},
-		glue = {"steps"},
-		plugin = {"pretty", "html:target/report-html", "io.qameta.allure.cucumber7jvm.AllureCucumber2Jvm"},
-		dryRun = false,
-		strict = true,
-		monochrome = true
+		features = "src/test/resources/features",
+		glue = "steps",
+		plugin = {
+				"pretty",
+				"io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm"
+		}
 		
 		)
 

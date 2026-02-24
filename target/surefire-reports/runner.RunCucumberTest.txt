@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
-Test set: javaweb.ContasTest
+Test set: runner.RunCucumberTest
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s -- in javaweb.ContasTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.216 s -- in runner.RunCucumberTest
