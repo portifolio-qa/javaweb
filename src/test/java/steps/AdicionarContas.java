@@ -4,9 +4,9 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
 
+import cucumber.api.java.pt.Dado;
+import cucumber.api.java.pt.Entao;
 import cucumber.api.java.pt.Quando;
-import io.cucumber.java.pt.Dado;
-import io.cucumber.java.pt.Então;
 import pages.AdicionarContasPage;
 import pages.HomePage;
 import runner.RunCucumberTest;
@@ -26,7 +26,7 @@ public void Home() {
 }	
 
 
-@Quando("clico em {Registrar}")
+@Quando("clico em Registrar")
 public void botaoRegistrar() {
 	
 	adicionarContasPage = new AdicionarContasPage(navegador);
@@ -43,12 +43,12 @@ public void idToggle() {
 
 }
 
-@Quando("clica no botão {Cadastrar}")
+@Quando("clica no botão Cadastrar")
 public void botaoCadastrar() {
 
 }
 
-@Então("Msg {A conta foi criada com sucesso}")
+@Entao("Msg A conta foi criada com sucesso")
 public void msgSucesso() {
 	
 	}

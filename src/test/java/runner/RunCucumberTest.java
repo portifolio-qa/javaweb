@@ -12,10 +12,10 @@ import org.openqa.selenium.chrome.ChromeOptions;
 
 @CucumberOptions(
 
-		features = "src/test/resources/features/cadastrarContas.feature",
+		features = "src/test/resources/features/contas.feature",
 		tags = {"~@ignore"},
 		glue = {"steps"},
-		plugin = {"pretty", "html:target/report-html"},
+		plugin = {"pretty", "html:target/report-html", "io.qameta.allure.cucumber2jvm.AllureCucumber2Jvm"},
 		dryRun = false,
 		strict = true,
 		monochrome = true
