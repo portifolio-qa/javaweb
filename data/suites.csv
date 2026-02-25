@@ -1,0 +1,4 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"Como usuário do Bug Bank
+Quero transferir valores entre contas
+Para que o saldo seja debitado da conta origem e creditado na conta destino","15","Realizar transferência com sucesso entre duas contas","","2026-02-25","passed","2026-02-25","","Transferência entre contas","Realizar transferência com sucesso entre duas contas",""
