@@ -1,7 +1,3 @@
-pages\BasePage.class
 runner\RunCucumberTest.class
-steps\TransferenciaContasSteps.class
-steps\AdicionarContas.class
-pages\HomePage.class
-pages\AdicionarContasPage.class
 helpers\Helpers.class
+steps\TransferenciaContasSteps.class

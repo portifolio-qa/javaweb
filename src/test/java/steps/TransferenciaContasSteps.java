@@ -3,6 +3,8 @@ package steps;
 import java.util.HashMap;
 import java.util.Map;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import io.cucumber.java.pt.Dado;
 import io.cucumber.java.pt.Entao;
 import io.cucumber.java.pt.Quando;
@@ -10,35 +12,51 @@ import io.cucumber.java.pt.Quando;
 public class TransferenciaContasSteps {
 
 	private final Map<String, Integer> saldos = new HashMap<>();
+	private String contaLogada;
+	private String mensagemTransferencia;
 
-	@Dado("que estou logado na aplicação")
-	public void queEstouLogadoNaAplicacao() {
+	@Dado("que estou na aplicação Bug Bank")
+	public void queEstouNaAplicacaoBugBank() {
 	}
 
-	@Dado("possuo duas contas cadastradas")
-	public void possuoDuasContasCadastradas() {
-		saldos.put("conta1", 1000);
-		saldos.put("conta2", 1000);
+	@Dado("que criei a conta {string} com saldo inicial de {int}")
+	public void queCrieiAContaComSaldoInicialDe(String conta, Integer saldoInicial) {
+		saldos.put(normalizarConta(conta), saldoInicial);
 	}
 
-	@Dado("a conta criada para o dono {word} de numero {int} com o saldo {int}")
-	public void aContaCriadaParaODono(String dono, Integer numero, Integer saldo) {
-		saldos.put(dono.toLowerCase(), saldo);
+	@Dado("criei a conta {string} com saldo inicial de {int}")
+	public void crieiAContaComSaldoInicialDe(String conta, Integer saldoInicial) {
+		queCrieiAContaComSaldoInicialDe(conta, saldoInicial);
 	}
 
-	@Quando("o Conta1 realiza a transfêrencia no valor de {int} na Conta2")
-	public void realizaTransferencia(Integer transferencia) {
-		Integer saldoConta1 = saldos.getOrDefault("conta1", 0);
-		Integer saldoConta2 = saldos.getOrDefault("conta2", 0);
-		saldos.put("conta1", saldoConta1 - transferencia);
-		saldos.put("conta2", saldoConta2 + transferencia);
+	@Dado("estou logado na conta {string}")
+	public void estouLogadoNaConta(String conta) {
+		contaLogada = normalizarConta(conta);
 	}
 
-	@Entao("o Conta2 tem o saldo no valor de {int} na conta")
-	public void validaSaldo(Integer saldoEsperado) {
-		Integer saldoConta1 = saldos.getOrDefault("conta1", 0);
-		Integer saldoConta2 = saldos.getOrDefault("conta2", 0);
-		saldoConta1.equals(saldoEsperado);
-		saldoConta2.equals(saldoEsperado);
+	@Quando("realizo uma transferência de {int} para a conta {string}")
+	public void realizoUmaTransferenciaDeParaAConta(Integer valor, String contaDestino) {
+		String destino = normalizarConta(contaDestino);
+		Integer saldoOrigem = saldos.getOrDefault(contaLogada, 0);
+		Integer saldoDestino = saldos.getOrDefault(destino, 0);
+
+		saldos.put(contaLogada, saldoOrigem - valor);
+		saldos.put(destino, saldoDestino + valor);
+		mensagemTransferencia = "Transferência realizada com sucesso";
+	}
+
+	@Entao("o saldo da conta {string} deve ser {int}")
+	public void oSaldoDaContaDeveSer(String conta, Integer saldoEsperado) {
+		Integer saldoAtual = saldos.getOrDefault(normalizarConta(conta), 0);
+		assertEquals(saldoEsperado, saldoAtual);
+	}
+
+	@Entao("devo visualizar a mensagem de transferência realizada com sucesso")
+	public void devoVisualizarAMensagemDeTransferenciaRealizadaComSucesso() {
+		assertEquals("Transferência realizada com sucesso", mensagemTransferencia);
+	}
+
+	private String normalizarConta(String conta) {
+		return conta.toLowerCase();
 	}
 }

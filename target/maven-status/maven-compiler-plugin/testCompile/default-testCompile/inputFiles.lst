@@ -1,7 +1,3 @@
 C:\www\javaweb\src\test\java\helpers\Helpers.java
-C:\www\javaweb\src\test\java\pages\AdicionarContasPage.java
-C:\www\javaweb\src\test\java\pages\BasePage.java
-C:\www\javaweb\src\test\java\pages\HomePage.java
 C:\www\javaweb\src\test\java\runner\RunCucumberTest.java
-C:\www\javaweb\src\test\java\steps\AdicionarContas.java
 C:\www\javaweb\src\test\java\steps\TransferenciaContasSteps.java
